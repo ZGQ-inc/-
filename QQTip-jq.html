@@ -14,22 +14,30 @@
 	<div class="test"><a href="https://zgq-inc.github.io">有效跳转</a></div>
 	<script type="text/javascript" src="http://libs.useso.com/js/jquery/1.9.0/jquery.min.js"></script>
 	<script type="text/javascript">
-		function is_QQ() {
+		function is_weixn() {
 		    var ua = navigator.userAgent.toLowerCase();
-		    if (ua.match(/MQQBrowser/i) == "MQQBrowser") {
-		        return true;
-		    } else {
-		        return false;
-		    }
-		}
+            if (ua.match(/MicroMessenger/i) == "micromessenger") {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        function is_QQ(){
+          var sUserAgent =navigator.userAgent.toLowerCase();
+          if( sUserAgent.match(/QQ/i) == 'qq'){
+            return true
+          }else{
+            return false
+          }
+        }
 		var isQQ = is_QQ();
 		var winHeight = typeof window.innerHeight != 'undefined' ? window.innerHeight : document.documentElement.clientHeight;
-		var QQTip = $('<div id="QQTip"><p><img src="live_QQ.png" alt="QQ打开"/></p></div>');
+		var OpenBrowser = $('<div id="OpenBrowser"><p><img src="live_QQ.png" alt="QQ打开"/></p></div>');
 		
 		if(isQQ){
-			$("body").append(QQTip);
+			$("body").append(OpenBrowser);
 		}
-		$("#QQTip").css({
+		$("#OpenBrowser").css({
 			"position":"fixed",
 			"left":"0",
 			"top":"0",
@@ -39,7 +47,7 @@
 			"background-color":"rgba(0,0,0,0.8)",
 			"filter":"alpha(opacity=80)",
 		});
-		$("#QQTip p").css({
+		$("#OpenBrowser p").css({
 			"text-align":"center",
 			"margin-top":"10%",
 			"padding-left":"5%",
