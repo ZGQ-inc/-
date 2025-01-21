@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>useless</title>
+</head>
+<body>
+    <p id="text"></p>
+
+    <script>
+        const url = new URL(window.location.href);
+        const param = url.searchParams.get("text");
+        document.getElementById("text").textContent = param;
+    </script>
+</body>
+</html>
