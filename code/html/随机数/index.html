@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>随机数生成</title>
+</head>
+<body>
+	<center>
+    <h1>随机数生成</h1>
+    <p>范围：1~5</p>
+    <p id="randomNumber"></p>
+    <button onclick="random()">→生成←</button>
+    <p>
+    <a href="https://domain.zgqinc.gq/">domain.zgqinc.gq</a>
+    </p>
+    </center>
+
+    <script>
+        function random() {
+            const min = 1;
+            const max = 5;
+            const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+            document.getElementById("randomNumber").textContent = "结果=" + randomNumber;
+        }
+    </script>
+</body>
+</html>

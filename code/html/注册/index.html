@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>注册</title>
+</head>
+<body>
+<div id="main">
+<h1>注册界面测试</h1>
+<p>安全警告：是否允许Cookies跨域（登录必须）<button onclick="makeCorsRequest()">允许</button></p>
+<form @submit.prevent="register">
+<label for="username">用户名：</label>
+<input type="username" id="usernameInput" v-model="username">
+<br>
+<label for="password">密码：</label>
+<input type="password" id="passwordInput" v-model="password">
+<button id="showPasswordButton" onclick="togglePasswordVisibility('passwordInput')">显示密码</button>
+<br>
+<button type="submit" onclick="saveUserData()">注册</button>
+<button onclick="getUserData()">用户名和密码列表（开发）</button>
+<button onclick="clearCookies()">清除Cookies（开发）</button>
+</form>
+<p v-if="message">{{message}}</p>
+<label for="loginbutton">已经有账号了？请登录：</label><button id="loginbutton">登录</button>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+<script>
+    new Vue(
+        {
+        el: '#main',
+        data:
+            {
+            username: '',
+            password: '',
+            message: ''
+            },
+        methods:
+            {
+            register: function()
+            {
+                if(this.username==='' || this.password==='')
+                {
+                    this.message='用户名和密码不能为空';
+                }
+                else if(this.username==='zgqinc' || this.username==='guest')
+                {
+                    this.message='账号已存在';
+                }
+                else
+                {
+                    this.message = '注册成功，即将跳转到登录页面';
+                    setTimeout(function () {
+                        window.location.href = "https://login.zgqinc.gq";
+                    }, 3000);
+                }
+            }
+            }
+        });
+</script>
+<script>
+    document.getElementById("loginbutton").addEventListener("click",function()
+    {
+        window.location.href="https://login.zgqinc.gq";
+    })
+</script>
+<script>
+    function saveUserData() {
+        const username = document.getElementById("usernameInput").value;
+        const password = document.getElementById("passwordInput").value;
+        let userData = JSON.parse(getCookie("user_data")) || [];
+
+        userData.push({ username, password });
+
+        document.cookie = `user_data=${JSON.stringify(userData)}; expires=Fri, 31 Dec 9999 23:59:59 GMT;`;
+
+        alert("注册成功");
+    }
+
+    function getUserData() {
+        const userData = JSON.parse(getCookie("user_data"));
+
+        if (userData && userData.length > 0) {
+            let userString = "用户名和密码列表:\n";
+            userData.forEach(user => {
+                userString += `用户名: ${user.username}, 密码: ${user.password}\n`;
+            });
+            alert(userString);
+        } else {
+            alert("没有保存的用户名和密码");
+        }
+    }
+
+    function loginUser() {
+        const loginUsername = document.getElementById("loginUsername").value;
+        const loginPassword = document.getElementById("loginPassword").value;
+
+        const userData = JSON.parse(getCookie("user_data"));
+
+        if (userData && userData.length > 0) {
+            let loginSuccessful = false;
+            for (const user of userData) {
+                if (user.username === loginUsername && user.password === loginPassword) {
+                    loginSuccessful = true;
+                    alert("登录成功");
+                    break;
+                }
+            }
+            if (!loginSuccessful) {
+                alert("用户名或密码不正确");
+            }
+        } else {
+            alert("没有保存的用户名和密码");
+        }
+    }
+
+    function clearCookies() {
+        document.cookie = "user_data=; expires=Thu, 01 Jan 1970 00:00:00 GMT;";
+        alert("Cookies已清除");
+    }
+
+    function togglePasswordVisibility(inputId) {
+        const passwordInput = document.getElementById(inputId);
+        const showPasswordButton = document.getElementById(`show${inputId}Button`);
+
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            showPasswordButton.textContent = "隐藏密码";
+        } else {
+            passwordInput.type = "password";
+            showPasswordButton.textContent = "显示密码";
+        }
+    }
+
+    function getCookie(name) {
+        const cookies = document.cookie.split(';');
+        for (let cookie of cookies) {
+            const parts = cookie.split('=');
+            const cookieName = parts[0].trim();
+            if (cookieName === name) {
+                return parts[1];
+            }
+        }
+        return null;
+    }
+</script>
+<script>
+    function makeCorsRequest() {
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', 'https://login.zgqinc.gq', true);
+
+        xhr.withCredentials = true;
+
+        xhr.onload = function () {
+            if (xhr.status === 200) {
+                const response = JSON.parse(xhr.responseText);
+                alert('跨域请求成功，响应: ' + response.message);
+            } else {
+                alert('跨域请求失败');
+            }
+        };
+
+        xhr.send();
+    }
+</script>
+</body>
+</html>

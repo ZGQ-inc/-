@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>本地存储示例</title>
+</head>
+<body>
+    <h1>本地存储示例</h1>
+
+    <button onclick="saveData()">保存数据</button>
+    <button onclick="loadData()">加载数据</button>
+
+    <script>
+        function saveData() {
+            const userData = [
+                { username: "user1", password: "password1" },
+                { username: "user2", password: "password2" }
+            ];
+
+            // 将 JSON 数组保存到本地存储
+            localStorage.setItem('user_data', JSON.stringify(userData));
+        }
+
+        function loadData() {
+            // 从本地存储中获取 JSON 数组
+            const userData = JSON.parse(localStorage.getItem('user_data'));
+
+            // 在控制台输出数据
+            console.log(userData);
+        }
+    </script>
+</body>
+</html>

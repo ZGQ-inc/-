@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cookie 示例</title>
+</head>
+<body>
+    <h1>Cookie 示例</h1>
+
+    <input type="text" id="usernameInput" placeholder="用户名">
+    <input type="password" id="passwordInput" placeholder="密码">
+    <button id="showPasswordButton" onclick="togglePasswordVisibility('passwordInput')">显示密码</button>
+    <button onclick="saveUserData()">保存用户名和密码</button>
+    <button onclick="getUserData()">获取用户名和密码</button>
+    <button onclick="clearCookies()">清除 Cookies</button>
+
+    <h2>登录</h2>
+    <input type="text" id="loginUsername" placeholder="用户名">
+    <input type="password" id="loginPassword" placeholder="密码">
+    <button id="showLoginPasswordButton" onclick="togglePasswordVisibility('loginPassword')">显示密码</button>
+    <button onclick="loginUser()">登录</button>
+
+    <script>
+        function saveUserData() {
+            const username = document.getElementById("usernameInput").value;
+            const password = document.getElementById("passwordInput").value;
+
+            // 读取已保存的用户数据或初始化为空数组
+            let userData = JSON.parse(getCookie("user_data")) || [];
+
+            // 添加新的用户名和密码到数组
+            userData.push({ username, password });
+
+            // 保存整个数组到 Cookie
+            document.cookie = `user_data=${JSON.stringify(userData)}; expires=Fri, 31 Dec 9999 23:59:59 GMT;`;
+
+            alert("用户名和密码已保存到 Cookie");
+        }
+
+        function getUserData() {
+            // 读取用户数据
+            const userData = JSON.parse(getCookie("user_data"));
+
+            if (userData && userData.length > 0) {
+                let userString = "用户名和密码列表:\n";
+                userData.forEach(user => {
+                    userString += `用户名: ${user.username}, 密码: ${user.password}\n`;
+                });
+                alert(userString);
+            } else {
+                alert("没有保存的用户名和密码");
+            }
+        }
+
+        function loginUser() {
+            const loginUsername = document.getElementById("loginUsername").value;
+            const loginPassword = document.getElementById("loginPassword").value;
+
+            // 读取用户数据
+            const userData = JSON.parse(getCookie("user_data"));
+
+            if (userData && userData.length > 0) {
+                let loginSuccessful = false;
+                for (const user of userData) {
+                    if (user.username === loginUsername && user.password === loginPassword) {
+                        loginSuccessful = true;
+                        alert("登录成功");
+                        break;
+                    }
+                }
+                if (!loginSuccessful) {
+                    alert("用户名或密码不正确");
+                }
+            } else {
+                alert("没有保存的用户名和密码");
+            }
+        }
+
+        function clearCookies() {
+            // 清除所有 cookies
+            document.cookie = "user_data=; expires=Thu, 01 Jan 1970 00:00:00 GMT;";
+            alert("Cookies 已清除");
+        }
+
+        function togglePasswordVisibility(inputId) {
+            const passwordInput = document.getElementById(inputId);
+            const showPasswordButton = document.getElementById(`show${inputId}Button`);
+
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                showPasswordButton.textContent = "隐藏密码";
+            } else {
+                passwordInput.type = "password";
+                showPasswordButton.textContent = "显示密码";
+            }
+        }
+
+        function getCookie(name) {
+            const cookies = document.cookie.split(';');
+            for (let cookie of cookies) {
+                const parts = cookie.split('=');
+                const cookieName = parts[0].trim();
+                if (cookieName === name) {
+                    return parts[1];
+                }
+            }
+            return null;
+        }
+    </script>
+</body>
+</html>

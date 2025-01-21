@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>登录</title>
+</head>
+<body>
+<div id="main">
+<h1>登录界面测试</h1>
+<form @submit.prevent="login">
+<label for="username">用户名：</label>
+<input type="username" id="usernameInput" v-model="username" placeholder="初始账号：guest">
+<br>
+<label for="password">密码：</label>
+<input type="password" id="passwordInput" v-model="password" placeholder="初始密码：123456">
+<button id="showPasswordButton" onclick="togglePasswordVisibility('passwordInput')">显示密码</button>
+<br>
+<button type="submit" onclick="loginUser()">登录</button>
+<button onclick="getUserData()">用户名和密码列表（开发）</button>
+<button onclick="clearCookies()">清除Cookies（开发）</button>
+</form>
+<p v-if="message">{{message}}</p>
+<label for="registerbutton">还没有账号？请注册：</label><button id="registerbutton">注册</button>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+<script>
+  new Vue(
+          {
+            el:'#main',
+            data:
+                    {
+                      username:'',
+                      password:'',
+                      message:''
+                    },
+            methods:
+                    {
+                      login:function()
+                      {
+                        if(this.username==='' || this.password==='')
+                        {
+                          this.message='请输入用户名和密码';
+                        }
+                        else if(this.username==='zgqinc' && this.password==='123456')
+                        {
+                          this.message='管理员登录成功，正在跳转';
+                          window.location.href='https://domain.zgqinc.gq';
+                        }
+                        else if(this.username==='guest' && this.password==='123456')
+                        {
+                          this.message='游客登录成功，正在跳转';
+                          window.location.href='https://domain.zgqinc.gq';
+                        }
+                        else
+                        {
+                          this.message='登录失败，请检查用户名和密码';
+                        }
+                      }
+                    }
+          });
+</script>
+<script>
+  document.getElementById("registerbutton").addEventListener("click",function()
+  {
+    window.location.href="https://register.zgqinc.gq";
+  })
+</script>
+<script>
+  function saveUserData() {
+    const username = document.getElementById("usernameInput").value;
+    const password = document.getElementById("passwordInput").value;
+
+    let userData = JSON.parse(getCookie("user_data")) || [];
+
+    userData.push({ username, password });
+
+    document.cookie = `user_data=${JSON.stringify(userData)}; expires=Fri, 31 Dec 9999 23:59:59 GMT;`;
+
+    alert("注册成功");
+  }
+
+  function getUserData() {
+    const userData = JSON.parse(getCookie("user_data"));
+
+    if (userData && userData.length > 0) {
+      let userString = "用户名和密码列表:\n";
+      userData.forEach(user => {
+        userString += `用户名: ${user.username}, 密码: ${user.password}\n`;
+      });
+      alert(userString);
+    } else {
+      alert("没有保存的用户名和密码");
+    }
+  }
+
+  function loginUser() {
+    const loginUsername = document.getElementById("loginUsername").value;
+    const loginPassword = document.getElementById("loginPassword").value;
+
+    const userData = JSON.parse(getCookie("user_data"));
+
+    if (userData && userData.length > 0) {
+      let loginSuccessful = false;
+      for (const user of userData) {
+        if (user.username === loginUsername && user.password === loginPassword) {
+          loginSuccessful = true;
+          alert("登录成功");
+          break;
+        }
+      }
+      if (!loginSuccessful) {
+        alert("用户名或密码不正确");
+      }
+    } else {
+      alert("没有保存的用户名和密码");
+    }
+  }
+
+  function clearCookies() {
+    document.cookie = "user_data=; expires=Thu, 01 Jan 1970 00:00:00 GMT;";
+    alert("Cookies已清除");
+  }
+
+  function togglePasswordVisibility(inputId) {
+    const passwordInput = document.getElementById(inputId);
+    const showPasswordButton = document.getElementById(`show${inputId}Button`);
+
+    if (passwordInput.type === "password") {
+      passwordInput.type = "text";
+      showPasswordButton.textContent = "隐藏密码";
+    } else {
+      passwordInput.type = "password";
+      showPasswordButton.textContent = "显示密码";
+    }
+  }
+
+  function getCookie(name) {
+    const cookies = document.cookie.split(';');
+    for (let cookie of cookies) {
+      const parts = cookie.split('=');
+      const cookieName = parts[0].trim();
+      if (cookieName === name) {
+        return parts[1];
+      }
+    }
+    return null;
+  }
+</script>
+</body>
+</html>

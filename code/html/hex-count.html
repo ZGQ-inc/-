@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hexadecimal and Decimal Counter</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            font-size: 48px;
+            background-color: #f0f0f0;
+            color: #333;
+            flex-direction: column;
+        }
+        .counter {
+            font-weight: bold;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="counter" id="hexCounter">0</div>
+    <div class="counter" id="decCounter">0</div>
+
+    <script>
+        let count = 0;
+        const hexCounterElement = document.getElementById('hexCounter');
+        const decCounterElement = document.getElementById('decCounter');
+
+        function updateCounter() {
+            hexCounterElement.textContent = count.toString(16).toUpperCase();
+            decCounterElement.textContent = count.toString(10);
+            count++;
+        }
+
+        setInterval(updateCounter, 1); // 每1毫秒更新一次
+    </script>
+</body>
+</html>
