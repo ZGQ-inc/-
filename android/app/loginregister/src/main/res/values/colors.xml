@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Primary colors -->
+    <color name="md_theme_light_primary">#3366FF</color>
+    <color name="md_theme_light_on_primary">#FFFFFF</color>
+    <color name="md_theme_light_primary_container">#D6E3FF</color>
+    <color name="md_theme_light_on_primary_container">#001A72</color>
+
+    <color name="md_theme_dark_primary">#AAC5FF</color>
+    <color name="md_theme_dark_on_primary">#002D9C</color>
+    <color name="md_theme_dark_primary_container">#0042D7</color>
+    <color name="md_theme_dark_on_primary_container">#D6E3FF</color>
+
+    <!-- Secondary colors -->
+    <color name="md_theme_light_secondary">#606060</color>
+    <color name="md_theme_light_on_secondary">#FFFFFF</color>
+    <color name="md_theme_light_secondary_container">#D6E3FF</color>
+    <color name="md_theme_light_on_secondary_container">#1C1C1C</color>
+
+    <color name="md_theme_dark_secondary">#CCCCCC</color>
+    <color name="md_theme_dark_on_secondary">#202020</color>
+    <color name="md_theme_dark_secondary_container">#3C3C3C</color>
+    <color name="md_theme_dark_on_secondary_container">#D6E3FF</color>
+
+    <!-- Background and Surface -->
+    <color name="md_theme_light_background">#FFFFFF</color>
+    <color name="md_theme_light_on_background">#1C1C1C</color>
+    <color name="md_theme_light_surface">#FFFFFF</color>
+    <color name="md_theme_light_on_surface">#1C1C1C</color>
+
+    <color name="md_theme_dark_background">#1C1C1C</color>
+    <color name="md_theme_dark_on_background">#E5E5E5</color>
+    <color name="md_theme_dark_surface">#1C1C1C</color>
+    <color name="md_theme_dark_on_surface">#E5E5E5</color>
+
+    <!-- Navigation-specific colors -->
+    <color name="nav_item_color">@color/md_theme_light_primary</color>
+    <color name="nav_background_color">@color/md_theme_light_surface</color>
+</resources>

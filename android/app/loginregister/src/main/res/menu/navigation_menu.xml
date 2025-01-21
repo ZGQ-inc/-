@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<!--    <item-->
+<!--        android:id="@+id/nav_search"-->
+<!--        android:title="Search" />-->
+<!--    <item-->
+<!--        android:id="@+id/nav_directory"-->
+<!--        android:title="Directory" />-->
+<!--    <item-->
+<!--        android:id="@+id/nav_preview"-->
+<!--        android:title="Preview" />-->
+<!--        <item-->
+<!--            android:id="@+id/nav_directory"-->
+<!--            android:title="目录" />-->
+<!--        <item-->
+<!--            android:id="@+id/nav_preview"-->
+<!--            android:title="预览" />-->
+
+<!--    <item-->
+<!--        android:id="@+id/nav_directory"-->
+<!--        android:icon="@drawable/ic_folder"-->
+<!--        android:title="目录" />-->
+<!--    <item-->
+<!--        android:id="@+id/nav_preview"-->
+<!--        android:icon="@drawable/ic_preview"-->
+<!--        android:title="预览" />-->
+
+</menu>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="usernameEditText" type="id" />
+    <item name="passwordEditText" type="id" />
+    <item name="registerButton" type="id" />
+    <item name="rememberCheckBox" type="id" />
+    <item name="loginButton" type="id" />
+    <item name="logoutButton" type="id" />
+    <item name="content_frame" type="id" />
+    <item name="drawer_layout" type="id" />
+    <item name="nav_directory" type="id" />
+    <item name="nav_preview" type="id" />
+    <item name="left_list_view" type="id" />
+    <item name="right_content_view" type="id" />
+    <item name="itemText" type="id" />
+</resources>

@@ -1,0 +1,17 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.YourApp" parent="Theme.Material3.DynamicColors.DayNight.NoActionBar">
+        <!-- 主颜色 -->
+        <item name="colorPrimary">#aac7ff</item>
+        <item name="colorSecondary">#bec6dc</item>
+        <item name="backgroundColor">#111318</item>
+
+        <!-- 状态栏和导航栏的颜色 -->
+        <item name="android:statusBarColor" tools:targetApi="l">#111318</item>
+        <item name="android:navigationBarColor" tools:targetApi="l">#111318</item>
+    </style>
+
+    <!-- 单独定义颜色资源 -->
+    <color name="nav_item_color">#e2e2e9</color>
+    <color name="nav_background_color">#37393e</color>
+</resources>
