@@ -1,0 +1,33 @@
+{
+  "swfs": [
+    {
+      "location": "logo-anim.swf",
+      "title": "Ruffle Logo",
+      "author": "Ruffle contributors",
+      "authorLink": "https://ruffle.rs",
+      "config": {
+        "autoplay": "on",
+        "backgroundColor": "#31497D",
+        "letterbox": "off",
+        "unmuteOverlay": "hidden",
+        "forceScale": false,
+        "forceAlign": false
+      }
+    },
+    {
+      "location": "swfs/cc5b733a0914a5fd0275b632b32b2fdf.swf",
+      "title": "1448925",
+      "author": "e621.net/posts/1448925",
+      "authorLink": "https://e621.net/posts/1448925",
+      "type": "Animation"
+    },
+
+    {
+      "location": "swfs/b4f82e521797b20b9b20c6a4acb1ec89.swf",
+      "title": "375883",
+      "author": "e621.net/posts/375883",
+      "authorLink": "https://e621.net/posts/375883",
+      "type": "Game"
+    }
+  ]
+}
