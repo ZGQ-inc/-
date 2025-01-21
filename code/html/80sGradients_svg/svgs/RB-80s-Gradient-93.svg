@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="340px" height="36px" viewBox="0 0 340 36">
+  <g>
+    <defs>
+      <linearGradient id="id-RB-80s-Gradient-93" name="RB 80s Gradient 93" gradientUnits="objectBoundingBox" spreadMethod="pad" x1="0%" x2="100%" y1="0%" y2="0%">
+        <stop offset="0.00%" stop-color="rgb(255, 255, 255)" stop-opacity="1.0000"/>
+        <stop offset="20.09%" stop-color="rgb(252, 100, 89)" stop-opacity="1.0000"/>
+        <stop offset="37.77%" stop-color="rgb(99, 31, 89)" stop-opacity="1.0000"/>
+        <stop offset="49.56%" stop-color="rgb(43, 20, 55)" stop-opacity="1.0000"/>
+        <stop offset="50.44%" stop-color="rgb(255, 255, 255)" stop-opacity="1.0000"/>
+        <stop offset="70.31%" stop-color="rgb(51, 85, 240)" stop-opacity="1.0000"/>
+        <stop offset="86.67%" stop-color="rgb(19, 48, 176)" stop-opacity="1.0000"/>
+        <stop offset="100.00%" stop-color="rgb(3, 24, 82)" stop-opacity="1.0000"/>
+      </linearGradient>
+    </defs>
+    <rect fill="url(#id-RB-80s-Gradient-93)" x="0" y="0" width="340" height="36"/>
+  </g>
+  <metadata>
+    <creator name="cptutils" version="1.83"/>
+    <created date="Sun Jan 12 13:59:48 2025"/>
+  </metadata>
+</svg>

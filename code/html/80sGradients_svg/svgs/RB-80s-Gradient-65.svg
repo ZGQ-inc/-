@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="340px" height="36px" viewBox="0 0 340 36">
+  <g>
+    <defs>
+      <linearGradient id="id-RB-80s-Gradient-65" name="RB 80s Gradient 65" gradientUnits="objectBoundingBox" spreadMethod="pad" x1="0%" x2="100%" y1="0%" y2="0%">
+        <stop offset="0.00%" stop-color="rgb(169, 215, 249)" stop-opacity="1.0000"/>
+        <stop offset="29.69%" stop-color="rgb(122, 47, 166)" stop-opacity="1.0000"/>
+        <stop offset="49.78%" stop-color="rgb(102, 16, 41)" stop-opacity="1.0000"/>
+        <stop offset="50.44%" stop-color="rgb(255, 255, 255)" stop-opacity="1.0000"/>
+        <stop offset="61.79%" stop-color="rgb(253, 147, 61)" stop-opacity="1.0000"/>
+        <stop offset="74.90%" stop-color="rgb(237, 71, 81)" stop-opacity="1.0000"/>
+        <stop offset="100.00%" stop-color="rgb(63, 13, 38)" stop-opacity="1.0000"/>
+      </linearGradient>
+    </defs>
+    <rect fill="url(#id-RB-80s-Gradient-65)" x="0" y="0" width="340" height="36"/>
+  </g>
+  <metadata>
+    <creator name="cptutils" version="1.83"/>
+    <created date="Sun Jan 12 13:59:48 2025"/>
+  </metadata>
+</svg>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="340px" height="36px" viewBox="0 0 340 36">
+  <g>
+    <defs>
+      <linearGradient id="id-RB-80s-Gradient-146" name="RB 80s Gradient 146" gradientUnits="objectBoundingBox" spreadMethod="pad" x1="0%" x2="100%" y1="0%" y2="0%">
+        <stop offset="0.00%" stop-color="rgb(153, 67, 162)" stop-opacity="1.0000"/>
+        <stop offset="25.32%" stop-color="rgb(212, 43, 151)" stop-opacity="1.0000"/>
+        <stop offset="49.34%" stop-color="rgb(231, 44, 128)" stop-opacity="1.0000"/>
+        <stop offset="75.10%" stop-color="rgb(252, 58, 93)" stop-opacity="1.0000"/>
+        <stop offset="100.00%" stop-color="rgb(249, 129, 52)" stop-opacity="1.0000"/>
+      </linearGradient>
+    </defs>
+    <rect fill="url(#id-RB-80s-Gradient-146)" x="0" y="0" width="340" height="36"/>
+  </g>
+  <metadata>
+    <creator name="cptutils" version="1.83"/>
+    <created date="Sun Jan 12 13:59:48 2025"/>
+  </metadata>
+</svg>

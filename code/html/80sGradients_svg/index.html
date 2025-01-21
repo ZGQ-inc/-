@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resource Boy 80s Gradients</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .item {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background: #fff;
+            padding: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 180px;
+            text-align: center;
+        }
+        .item img {
+            width: 100%;
+            height: auto;
+            border-bottom: 1px solid #ccc;
+            margin-bottom: 10px;
+        }
+        .color-code {
+            font-weight: bold;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Resource Boy 80s Gradients</h1>
+    <h2><a href="Resource Boy 80s Gradients.grd">Download GRD</a> <a href="80sGradients_svg.zip">Download SVG</a> <a href="https://resourceboy.com/photoshop-gradients/80s-gradients/">source</a></h2>
+
+    <div class="container" id="svgContainer"></div>
+
+    <script>
+const svgContainer = document.getElementById('svgContainer');
+const svgFiles = [];
+const totalFiles = 150;
+
+// Populate svgFiles array dynamically
+for (let i = 1; i <= totalFiles; i++) {
+    const fileName = `svgs/RB-80s-Gradient-${String(i).padStart(2, '0')}.svg`;
+    svgFiles.push(fileName);
+}
+
+// Function to convert RGB to HEX
+function rgbToHex(rgb) {
+    const match = rgb.match(/\d+/g); // Extract numbers
+    if (!match || match.length !== 3) return null;
+    const [r, g, b] = match.map(num => parseInt(num, 10));
+    return `#${((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1).toUpperCase()}`;
+}
+
+// Function to extract colors from SVG content
+async function extractColorsFromSVG(file) {
+    const response = await fetch(file);
+    const text = await response.text();
+
+    const parser = new DOMParser();
+    const svgDoc = parser.parseFromString(text, "image/svg+xml");
+
+    const stopElements = svgDoc.querySelectorAll("stop[stop-color]");
+    const colors = Array.from(stopElements)
+        .map(stop => stop.getAttribute("stop-color"))
+        .map(rgbToHex)
+        .filter(color => color !== null); // Filter out invalid values
+
+    return colors;
+}
+
+// Main logic
+svgFiles.forEach(async file => {
+    const colors = await extractColorsFromSVG(file);
+    const colorCode = colors.length > 0 ? colors.join(", ") : 'Unknown';
+
+    const itemDiv = document.createElement('div');
+    itemDiv.className = 'item';
+
+    const img = document.createElement('img');
+    img.src = file;
+    img.alt = file;
+
+    const colorDiv = document.createElement('div');
+    colorDiv.className = 'color-code';
+    colorDiv.textContent = `HEX: ${colorCode}`;
+
+    itemDiv.appendChild(img);
+    itemDiv.appendChild(colorDiv);
+    svgContainer.appendChild(itemDiv);
+});
+
+    </script>
+</body>
+</html>
